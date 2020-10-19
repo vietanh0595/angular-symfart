@@ -1,0 +1,16 @@
+<div *ngIf="article">
+  <h2>{{article.title | uppercase}}</h2>
+  <div><span>id: </span>{{article.id}}</div>
+  <div><p>{{article.body}}</p></div>
+  <div>
+    <label>title:
+      <input [(ngModel)]="article.title" placeholder="title"/>
+    </label>
+    <br>
+    <label>body:
+      <textarea [(ngModel)]="article.body" placeholder="body"></textarea>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

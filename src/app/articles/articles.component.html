@@ -1,0 +1,24 @@
+<ul class="heroes">
+  <li *ngFor="let article of articles">
+    <a routerLink="/detail/{{article.id}}">
+      <span class="badge">{{article.id}}</span> {{article.title}}
+    </a>
+    <button class="delete" title="delete hero"
+      (click)="delete(article)">x</button>
+  </li>
+</ul>
+
+<div *ngIf="this.getByCat">
+  <label>Article Title:
+    <input #articleTitle />
+  </label>
+  <br><br>
+  <label>Article Body:
+    <textarea #articleBody></textarea>
+  </label>
+  <br><br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(articleTitle.value, articleBody.value, catId); articleTitle.value=''; articleBody.value=''">
+    add
+  </button>
+</div>
